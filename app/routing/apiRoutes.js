@@ -10,8 +10,9 @@ module.exports = function(app) {
   
   //Post Nerds and find compatible nerd friends.
   app.post("/api/nerds", function(request, response) {
-      response.push(request.body);
-      console.log(request.body);
+    let newNerd = request.body;  
+    newNerd.routeName = newNerd.name.replace(/\s+/g,"").toLowerCase();
+    nerds.push(newNerd);   
+    response.json(newNerd);
   });
-
 };
