@@ -197,13 +197,12 @@
 
               }
 
-              // If a table is available... tell user they on the waiting list.
               else {
                 clearForm();
               }
 
             }).done(function(data){
-              alert("Your match is: " + data);
+              alert("Your match is: " + data.name);
             });
 
         });
