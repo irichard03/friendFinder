@@ -193,20 +193,28 @@
 
              $.post("/api/nerds", nerd, function(data) {
               if (data) {
-                alert("Call a function instead of this alert dummy");
+                clearForm();
+
               }
 
               // If a table is available... tell user they on the waiting list.
               else {
-                alert("Something went wrong:\n" + data);
-
+                clearForm();
               }
 
-            }).done(function(){
-              //after ajax call do this.
+            }).done(function(data){
+              alert("Your match is: " + data);
             });
 
         });
+
+        function clearForm(){
+          $('#nerdName').val("")
+          $('#nerdPhoto').val("")
+          for(let i = 0; i <= 9; i++){
+            $(`#q${i+1}`).val("");
+          }
+        }
         </script>
 </body>
 </html>

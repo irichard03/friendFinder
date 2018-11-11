@@ -14,6 +14,5 @@ module.exports = function(app) {
     newNerd.routeName = newNerd.name.replace(/\s+/g,"").toLowerCase();
     nerds.push(newNerd);   
     response.json(newNerd);
-    
   });
 };
