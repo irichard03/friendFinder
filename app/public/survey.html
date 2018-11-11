@@ -173,6 +173,40 @@
         <script src="https://code.jquery.com/jquery.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        <script src="../data/friends.js"></script>
+        <script>
+
+          $('#continueButton').click(function(event){
+            event.preventDefault();
+            const formName = $('#nerdName').val().trim();
+            const formPhoto = $('#nerdPhoto').val().trim();
+            const formArray = [];
+            for(let i = 0; i <= 9; i++){
+              formArray.push($(`#q${i+1}`).val().trim());
+            }
+
+            let nerd = {
+              name: formName,
+              photo: formPhoto,
+              answers: formArray,
+              match: [],
+            }
+
+             $.post("/api/nerds", nerd, function(data) {
+              if (data) {
+                alert("Call a function instead of this alert dummy");
+              }
+
+              // If a table is available... tell user they on the waiting list.
+              else {
+                alert("Something went wrong:\n" + data);
+
+              }
+
+            }).done(function(){
+              //after ajax call do this.
+            });
+
+        });
+        </script>
 </body>
 </html>
