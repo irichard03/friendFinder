@@ -1,26 +1,18 @@
 const express = require("express");
-const path = require("path");
-
 const app = express();
 const port = 3000;
 
+require("./app/routing/htmlRoutes")(app);
+require("./app/routing/apiRoutes")(app);
+
+
 app.use(express.urlencoded({ extended: true}));
+//json parse...somthing
 app.use(express.json());
 
-require("./app/routing/htmlRoutes")(app);
+//serve static files like css
+app.use(express.static('public'));
 
-var nerdProfile = [
-    {
-        name: "MrPotato",
-        email: "MrPotato@email.com",
-        gamerScore: 1,
-        scienceScore: 1,
-        fantasyScore: 1,
-        SciFiScore:1,
-    },
-];
-
-   
 app.listen(port, function(){
     console.log("HEY I'm A POTATO!");
 });

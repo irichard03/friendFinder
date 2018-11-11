@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/public/style.css"/>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
 </head>
 
 <body>
@@ -28,14 +28,144 @@
                                   <form role="form survey">
                       
                                     <div class="form-group">
-                                      <label for="name">Name</label>
+                                      <label for="name">Name:</label>
                                       <input type="text" class="form-control" id="nerdName">
                                     </div>
 
                                     <div class="form-group">
-                                      <label for="email">E-mail</label>
+                                      <label for="photo">Photo Link:</label>
                                       <input type="text" class="form-control" id="nerdEmail">
                                     </div>
+                                    
+                                    <div class="form-group">
+                                      <h3><strong>Question 1</strong></h3>
+                                      <h4>You can name more starwars characters than players on your fantasy football team.</h4>
+                                      <select class="chosen-select" id="q1">
+                                        <option value=""></option>
+                                        <option value="1">1 (Strongly Disagree)</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5 (Strongly Agree)</option>
+                                      </select>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <h3><strong>Question 2</strong></h3>
+                                    <h4>You wondered if whether players on your bench was included when you answered question 1.</h4>
+                                    <select class="chosen-select" id="q2">
+                                      <option value=""></option>
+                                      <option value="1">1 (Strongly Disagree)</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5 (Strongly Agree)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                  <h3><strong>Question 3</strong></h3>
+                                  <h4>You had difficulty answering both question 1 and 2 because you started thinking about drow and hobbits when you read the word fantasy.</h4>
+                                  <select class="chosen-select" id="q3">
+                                    <option value=""></option>
+                                    <option value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                  </select>
+                              </div>
+
+                              <div class="form-group">
+                                <h3><strong>Question 4</strong></h3>
+                                <h4>You'd prefer this to be a math question.</h4>
+                                <select class="chosen-select" id="q4">
+                                  <option value=""></option>
+                                  <option value="1">1 (Strongly Disagree)</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5 (Strongly Agree)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                              <h3><strong>Question 5</strong></h3>
+                              <h4>If you were a cosplayer you would most likely dress up as an obscure anime character.</h4>
+                              <select class="chosen-select" id="q5">
+                                <option value=""></option>
+                                <option value="1">1 (Strongly Disagree)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 (Strongly Agree)</option>
+                              </select>
+                          </div>
+
+                          <div class="form-group">
+                            <h3><strong>Question 6</strong></h3>
+                            <h4>You just had a 30 minute argument with your friends about what qualifies as an obscure anime character...and none of the character's you named were the english dubbed version.</h4>
+                            <select class="chosen-select" id="q6">
+                              <option value=""></option>
+                              <option value="1">1 (Strongly Disagree)</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5 (Strongly Agree)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                          <h3><strong>Question 7</strong></h3>
+                          <h4>You have no friends, you build robots in their stead.</h4>
+                          <select class="chosen-select" id="q7">
+                            <option value=""></option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                          </select>
+                      </div>
+
+                      <div class="form-group">
+                        <h3><strong>Question 8</strong></h3>
+                        <h4>You agree that the blockbuster 1982 film E.T., directed by Stephen Spielberg, which although superiour in popular appeal, is ultimately inferior to his Richard Dreyfus starring magnum opus: Close Encounters of the Third Kind.</h4>
+                        <select class="chosen-select" id="q8">
+                          <option value=""></option>
+                          <option value="1">1 (Strongly Disagree)</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                      <h3><strong>Question 9</strong></h3>
+                      <h4>You have written a similiar survey to this using a combination of html and javascript.</h4>
+                      <select class="chosen-select" id="q9">
+                        <option value=""></option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                      </select>
+                  </div>
+
+                  <div class="form-group">
+                    <h3><strong>Question 10 </strong></h3>
+                    <h4>You interrupted a conversation today to opine about linux distro prefernces.</h4>
+                    <select class="chosen-select" id="q10">
+                      <option value=""></option>
+                      <option value="1">1 (Strongly Disagree)</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
 
                         <a class="btn btn-primary btn-lg" id="continueButton" href="#" role="button">Continue >></a>
                       </div>
