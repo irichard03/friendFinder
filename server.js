@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
 //serve static files like css
-app.use(express.static('public'));
+app.use(express.static('/public'));
 
 app.listen(port, function(){
     console.log("HEY I'm A POTATO!");
