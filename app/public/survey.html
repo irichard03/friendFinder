@@ -177,19 +177,22 @@
 
           $('#continueButton').click(function(event){
             event.preventDefault();
+            
+            let nerd = {
+              name: formName,
+              photo: formPhoto,
+              answers: [],
+              match: [],
+            }
+            
             const formName = $('#nerdName').val().trim();
             const formPhoto = $('#nerdPhoto').val().trim();
             const formArray = [];
             for(let i = 0; i <= 9; i++){
-              formArray.push($(`#q${i+1}`).val().trim());
+              nerd.formArray.push($(`#q${i+1}`).val().trim());
             }
 
-            let nerd = {
-              name: formName,
-              photo: formPhoto,
-              answers: formArray,
-              match: [],
-            }
+            
 
              $.post("/api/nerds", nerd, function(data) {
               if (data) {

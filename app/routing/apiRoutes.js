@@ -12,40 +12,38 @@ module.exports = function(app) {
   app.post("/api/nerds", function(request, response) {
     let newNerd = request.body;  
     newNerd.routeName = newNerd.name.replace(/\s+/g,"").toLowerCase();
-    nerds.push(newNerd);   
+    
+   
     
     let matchNerd = nerdTest(newNerd);
-    
-    response.json(matchNerd.name);
-
+    nerds.push(newNerd);   
+    //send response! 
+    response.send(matchNerd);
   });
 };
-
-function nerdTest(object){
-  let variance =0;
+//newNerd.answers[i] element.answers[i]
+function nerdTest(newNerd){
+  let variance = 0;
   let matchArray = [];
-  //loop through each nerd record object
-  nerds.forEach(function(element) {
-      //console.log(element);
-      //loop through each nerd record answer
-      for(let i = 0; i <= 9; i++){
-              variance += (element[i] > object.answers[i]) ? (element[i] - object.answers[i]) : (object.answers[i] - element[i]);
-          
-      }
-      //console.log(variance);
-      matchArray.push(variance);
-      variance = 0;
+  nerds.forEach(function(element){
+    //console.log(element);
+    for(let i = 0; i <= 9; i++){
+      variance += (element.answers[i] > newNerd.answers[i]) ? (element.answers[i] - newNerd.answers[i]) : (newNerd.answers[i] - element.answers[i]);
+    }
+    matchArray.push(variance);
+    //console.log(variance);
+    variance = 0;
   });
-  console.log(matchArray);
-  let lowestNumber = 40;  //assuming max variance of 40, if an element is lower than this, it becomes low number.
+  //console.log(matchArray);
+  let lowestNumber = 40; //assuming max variance of 40 if an element is lower than this it becomes lowest.
   let pick = 0;
   for(let j = 0; j <= matchArray.length; j++){
-      if(matchArray[j] < lowestNumber){
-          lowestNumber = matchArray[j];
-          pick = j -1;
-      }
+    if(matchArray[j] < lowestNumber){
+      lowestNumber = matchArray[j];
+      pick = j;
+    }
   }
-  console.log("Lowest number is: " + lowestNumber + "\nMatch is: " + nerds.answer[pick]);
-  return nerds.answers[pick];
+  //console.log(pick);
+  //console.log(lowestNumber);
+  return(nerds[pick]);
 }
-
