@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require('path');
 const app = express();
 const port = 3000;
 
@@ -12,7 +13,7 @@ require("./app/routing/apiRoutes")(app);
 
 
 //serve static files like css
-app.use(express.static('/public'));
+app.use(express.static(path.join(__dirname,'./app/public')));
 
 app.listen(port, function(){
     console.log("HEY I'm A POTATO!");

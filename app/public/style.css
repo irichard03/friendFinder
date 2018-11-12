@@ -2,3 +2,18 @@ body {
     background-image: url("./jj-ying-787486-unsplash.jpg");
     background-size: cover;
 }
+
+#displayBox {
+    visibility: hidden;
+    width: 600px;
+    height: 600px;
+    background-color: white;
+    position: absolute;
+    margin-left: 200px;
+    margin-top: -100px;
+}
+
+img {
+    width: 400px;
+    height: 480px;
+}

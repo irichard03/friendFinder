@@ -166,9 +166,19 @@
                       <option value="5">5 (Strongly Agree)</option>
                     </select>
                 </div>
+                  <a class="btn btn-primary btn-lg" id="continueButton" href="" role="button">Continue >></a>
+                </div>
+                
+                <div>
+                    <a href="/api/nerds">Nerd List</a>
+                </div>
 
-                        <a class="btn btn-primary btn-lg" id="continueButton" href="" role="button">Continue >></a>
-                      </div>
+                <div id="displayBox">
+                  
+                </div>
+               
+               
+                
         </div>
         <script src="https://code.jquery.com/jquery.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -202,7 +212,11 @@
               }
 
             }).done(function(data){
-              alert("Your match is: " + data.name);
+              $('#displayBox').append('<h4>Match Found!</h4>');
+              $('#displayBox').append(`<img src='${data.photo}'>`);
+              $('#displayBox').append(`<h4>${data.name}</h4>`);
+              $('#displayBox').append(`</div><a class="btn btn-primary btn-lg" id="closeMe" href="" role="button">Close</a></div>`);
+              $('#displayBox').css('visibility','visible');
             });
 
         });
@@ -214,6 +228,11 @@
             $(`#q${i+1}`).val("");
           }
         }
+
+        $('#closeMe').click(function(event){
+          event.preventDefault();
+          $('#displayBox').css('visibility','hidden');
+        });
         </script>
 </body>
 </html>
