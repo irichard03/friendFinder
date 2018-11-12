@@ -167,25 +167,8 @@
                     </select>
                 </div>
 
-                  <a class="btn btn-primary btn-lg" id="continueButton" href="" role="button">Continue >></a>
-                </div>
-
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="myModal">Match Found!</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body nerdBox">
-                            <img src="jj-ying-787486-unsplash.jpg">
-                        </div>
-
+                        <a class="btn btn-primary btn-lg" id="continueButton" href="" role="button">Continue >></a>
                       </div>
-                    </div>
-                  </div>
         </div>
         <script src="https://code.jquery.com/jquery.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -194,22 +177,19 @@
 
           $('#continueButton').click(function(event){
             event.preventDefault();
-            
-            let nerd = {
-              name: formName,
-              photo: formPhoto,
-              answers: [],
-              match: [],
-            }
-            
             const formName = $('#nerdName').val().trim();
             const formPhoto = $('#nerdPhoto').val().trim();
             const formArray = [];
             for(let i = 0; i <= 9; i++){
-              nerd.formArray.push($(`#q${i+1}`).val().trim());
+              formArray.push($(`#q${i+1}`).val().trim());
             }
 
-            
+            let nerd = {
+              name: formName,
+              photo: formPhoto,
+              answers: formArray,
+              match: [],
+            }
 
              $.post("/api/nerds", nerd, function(data) {
               if (data) {
@@ -222,9 +202,7 @@
               }
 
             }).done(function(data){
-              $('nerdBox').append(`<img src='${data.photo}'>`);
-              $('nerdBox').append(`<img src='${data.name}'>`);
-              $('#myModal').modal('show');
+              alert("Your match is: " + data.name);
             });
 
         });
